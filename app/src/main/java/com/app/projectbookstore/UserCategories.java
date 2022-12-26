@@ -58,6 +58,7 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
             public void onClick(View view)
             {
                 Intent intent = new Intent(UserCategories.this, StudentHomeScreenActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
