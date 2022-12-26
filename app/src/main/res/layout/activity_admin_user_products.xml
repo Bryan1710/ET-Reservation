@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminUserProductsActivity"
+    android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/r3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/tart"
+        android:layout_alignParentTop="true"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Products"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/products_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/r3"
+
+        android:layout_marginTop="0dp"></androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btnClaimed"
+        android:layout_width="289dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="46dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/tart"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Claimed"
+        android:textColor="@android:color/white"
+        android:textSize="18dp" />
+</RelativeLayout>
