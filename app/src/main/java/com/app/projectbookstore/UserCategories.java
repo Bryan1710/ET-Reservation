@@ -50,14 +50,14 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
         productsArrayList = new ArrayList<>();
         productAdapter = new ProductAdapter(this, productsArrayList, this);
         recyclerView.setAdapter(productAdapter);
-        productAdapter.setFilteredList(filterByCategory(productsArrayList, category));
+        filterByCategory(category);
 
         btnClose = findViewById(R.id.admin_close_settings_btn);
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(UserCategories.this, Categories.class);
+                Intent intent = new Intent(UserCategories.this, StudentHomeScreenActivity.class);
                 finish();
             }
         });
@@ -96,7 +96,7 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(UserCategories.this, Categories.class);
+        Intent intent = new Intent(UserCategories.this, ProductDetailsActivity.class);
 
         intent.putExtra("productName", productsArrayList.get(position).getProductName());
         intent.putExtra("productPrice", productsArrayList.get(position).getProductPrice());
@@ -106,18 +106,24 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
         startActivity(intent);
     }
 
-    private ArrayList<Products> filterByCategory(ArrayList<Products> arr, String category) {
+    private void filterByCategory(String category) {
 
-        productsByCategory = new ArrayList<>();
-        for(Products p : arr)
+        ArrayList<Products> filteredList = new ArrayList<>();
+
+        for(Products p : productsArrayList)
         {
-            if(p.getProductCategory().equals(category)) {
-                productsByCategory.add(p);
+            if(p.getProductCategory().toLowerCase().equals(category.toLowerCase())) {
+                filteredList.add(p);
             }
             else {
             }
         }
-        return productsByCategory;
+
+        if (filteredList.isEmpty()) {
+            Toast.makeText(this, "No items here", Toast.LENGTH_SHORT).show();
+        } else {
+            productAdapter.setFilteredList(filteredList);
+        }
     }
 
     private void filterList(String text) {
@@ -212,7 +218,4 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
         // return the list regardless if its empty or not
         return toReturn;
     }
-
-
     }
-}

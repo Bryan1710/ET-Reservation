@@ -48,6 +48,7 @@ public class StudentHomeScreenActivity extends AppCompatActivity implements Recy
     ProductAdapter productAdapter;
     ArrayList<Products> productsArrayList, sortedProductsByPrice;
     private SearchView searchView;
+    private ImageView imgBook, imgUniforms, imgMerchendise;
 
     //about us
     @Override
@@ -69,7 +70,39 @@ public class StudentHomeScreenActivity extends AppCompatActivity implements Recy
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
-        recyclerView = findViewById(R.id.studentItems);
+        imgBook = findViewById(R.id.books);
+        imgUniforms = findViewById(R.id.uniforms);
+        imgMerchendise = findViewById(R.id.others);
+
+        imgBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(StudentHomeScreenActivity.this, UserCategories.class);
+                intent.putExtra("category", "Books");
+                startActivity(intent);
+            }
+        });
+        imgUniforms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(StudentHomeScreenActivity.this, UserCategories.class);
+                intent.putExtra("category", "Uniforms");
+                startActivity(intent);
+            }
+        });
+
+
+        imgMerchendise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(StudentHomeScreenActivity.this, UserCategories.class);
+                intent.putExtra("category", "Others");
+                startActivity(intent);
+            }
+        });
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity
                                 Toast.makeText(MainActivity.this, "Welcome Student!", Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
 
-                                Intent intent = new Intent(MainActivity.this, Categories.class);
+                                Intent intent = new Intent(MainActivity.this, StudentHomeScreenActivity.class);
                                 Prevalent.currentOnlineUser = usersData;
                                 startActivity(intent);
                             }

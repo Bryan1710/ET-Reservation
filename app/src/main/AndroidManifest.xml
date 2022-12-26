@@ -13,9 +13,6 @@
             android:name=".UserCategories"
             android:exported="true" />
         <activity
-            android:name=".Categories"
-            android:exported="true" />
-        <activity
             android:name=".AboutUsActivity"
             android:exported="false" />
         <activity
