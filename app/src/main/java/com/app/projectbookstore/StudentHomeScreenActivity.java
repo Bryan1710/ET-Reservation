@@ -70,9 +70,9 @@ public class StudentHomeScreenActivity extends AppCompatActivity implements Recy
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
-        imgBook = findViewById(R.id.books);
-        imgUniforms = findViewById(R.id.uniforms);
-        imgMerchendise = findViewById(R.id.others);
+        imgBook = findViewById(R.id.books_user);
+        imgUniforms = findViewById(R.id.uniforms_user);
+        imgMerchendise = findViewById(R.id.others_user);
 
         imgBook.setOnClickListener(new View.OnClickListener() {
             @Override

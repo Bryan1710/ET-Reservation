@@ -81,26 +81,27 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:flow_horizontalAlign="center"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/viewDivider"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
 
 
             <ImageView
-                android:id="@+id/books"
+                android:id="@+id/books_user"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="170dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/categories_icon_background"
                 android:padding="18dp"
@@ -108,23 +109,23 @@
                 android:src="@drawable/ic_books" />
 
             <TextView
-                android:id="@+id/txtBooksCategory"
+                android:id="@+id/txtBooksCategoryUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="23dp"
-                android:layout_marginTop="200dp"
-                android:layout_toRightOf="@+id/books"
+                android:layout_marginTop="35dp"
+                android:layout_toRightOf="@+id/books_user"
                 android:fontFamily="sans-serif-black"
                 android:text="Books"
                 android:textColor="@android:color/black"
                 android:textSize="22sp" />
 
             <ImageView
-                android:id="@+id/uniforms"
+                android:id="@+id/uniforms_user"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_below="@+id/books"
+                android:layout_below="@+id/books_user"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="23dp"
                 android:layout_marginBottom="12dp"
@@ -134,14 +135,14 @@
                 tools:layout_editor_absoluteX="151dp" />
 
             <TextView
-                android:id="@+id/txtUniformsCategory"
+                android:id="@+id/txtUniformsCategoryUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="24dp"
-                android:layout_marginTop="340dp"
-                android:layout_toRightOf="@id/uniforms"
+                android:layout_marginTop="175dp"
+                android:layout_toRightOf="@id/uniforms_user"
                 android:fontFamily="sans-serif-black"
                 android:text="Uniforms"
                 android:textColor="@android:color/black"
@@ -150,27 +151,27 @@
                 tools:layout_editor_absoluteY="120dp" />
 
             <ImageView
-                android:id="@+id/others"
+                android:id="@+id/others_user"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_below="@+id/uniforms"
+                android:layout_below="@+id/uniforms_user"
                 android:layout_marginLeft="-98dp"
                 android:layout_marginTop="23dp"
-                android:layout_toRightOf="@id/uniforms"
+                android:layout_toRightOf="@id/uniforms_user"
                 android:background="@drawable/categories_icon_background"
                 android:padding="18dp"
                 android:src="@drawable/ic_merchandise"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/uniforms" />
+                app:layout_constraintStart_toEndOf="@+id/uniforms_user" />
 
             <TextView
-                android:id="@+id/txtMerchandiseCategory"
+                android:id="@+id/txtMerchandiseCategoryUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="156dp"
-                android:layout_marginTop="470dp"
+                android:layout_marginTop="306dp"
                 android:fontFamily="sans-serif-black"
                 android:text="Merchandise"
                 android:textColor="@android:color/black"
@@ -178,7 +179,8 @@
                 tools:layout_editor_absoluteX="257dp"
                 tools:layout_editor_absoluteY="100dp" />
         </RelativeLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 
 
