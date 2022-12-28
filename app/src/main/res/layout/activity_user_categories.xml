@@ -15,7 +15,7 @@
         android:background="@color/tart">
 
         <TextView
-            android:id="@+id/admin_close_settings_btn"
+            android:id="@+id/user_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -27,7 +27,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/itemLists"
+            android:id="@+id/user_itemList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -38,10 +38,10 @@
             android:textSize="25dp" />
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_bar"
+            android:id="@+id/user_search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/itemLists"
+            android:layout_below="@+id/user_itemList"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"

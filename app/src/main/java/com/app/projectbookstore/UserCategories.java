@@ -29,7 +29,7 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
     private DatabaseReference ProductsRef;
     private RecyclerView recyclerView;
     ProductAdapter productAdapter;
-    ArrayList<Products> productsArrayList, productsByCategory;
+    ArrayList<Products> productsArrayList;
     private SearchView searchView;
     private TextView btnClose;
     private String category;
@@ -43,16 +43,15 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
 
         category = getIntent().getStringExtra("category");
 
-        recyclerView = findViewById(R.id.items_list);
+        recyclerView = findViewById(R.id.items_list_user);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         productsArrayList = new ArrayList<>();
         productAdapter = new ProductAdapter(this, productsArrayList, this);
         recyclerView.setAdapter(productAdapter);
-        filterByCategory(category);
 
-        btnClose = findViewById(R.id.admin_close_settings_btn);
+        btnClose = findViewById(R.id.user_close);
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -69,6 +68,7 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Products products = dataSnapshot.getValue(Products.class);
                     productsArrayList.add(products);
+                    filterByCategory(category);
                 }
                 productAdapter.notifyDataSetChanged();
             }
@@ -79,7 +79,7 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
             }
         });
 
-        searchView = findViewById(R.id.search_bar);
+        searchView = findViewById(R.id.user_search_bar);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -113,7 +113,7 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
 
         for(Products p : productsArrayList)
         {
-            if(p.getProductCategory().toLowerCase().equals(category.toLowerCase())) {
+            if(p.getProductCategory().contains(category)) {
                 filteredList.add(p);
             }
             else {
@@ -121,7 +121,7 @@ public class UserCategories extends AppCompatActivity implements RecyclerViewInt
         }
 
         if (filteredList.isEmpty()) {
-            Toast.makeText(this, "No items here", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Items in this category", Toast.LENGTH_SHORT).show();
         } else {
             productAdapter.setFilteredList(filteredList);
         }
